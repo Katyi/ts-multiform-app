@@ -1,0 +1,35 @@
+.formPage {
+  background: #f8f9fa;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0 0 0;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.question {
+  margin-top: 10px;
+  width: 90%;
+  text-align: center;
+}
+.checkboxPart, .radioPart {
+  margin-top: 20px;
+}
+.formInput {
+  margin-top: 50px;
+  width: 250px;
+  padding: 10px 15px;
+  border: 2px solid lightgrey;
+}
+.formTextArea {
+  margin-top: 50px;
+  width: 400px;
+  padding: 10px 15px;
+  border: 2px solid lightgrey;
+}
+.formInput:focus, .formTextArea:focus {
+  outline: none;
+  border: 2px solid #7f858c;
+}
