@@ -2,7 +2,7 @@ import "./timer.css";
 import {ReactElement, useEffect, useState} from 'react';
 
 const Timer = (): ReactElement => {
-  const [counter, setCounter] = useState<number>(3600);
+  const [counter, setCounter] = useState<number>(300);
 
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
