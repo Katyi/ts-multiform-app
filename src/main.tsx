@@ -12,7 +12,7 @@ import Success from './pages/success/Success.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StepsProvider>
     <ThemeProvider theme={theme}>
-        <Router>
+        <Router basename={"/ts-multiform-app/"}>
           <Routes>
             <Route path="/" element={<App/>}/>
             <Route path="/success" element={<Success/>}/>
