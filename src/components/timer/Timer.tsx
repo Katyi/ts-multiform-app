@@ -1,12 +1,5 @@
 import "./timer.css";
 import {ReactElement, useEffect, useState} from 'react';
-import { Dispatch, SetStateAction } from "react";
-
-
-type Props = {
-  counter: number,
-  setCounter: Dispatch<SetStateAction<number>>
-}
 
 const Timer = (): ReactElement => {
   const [counter, setCounter] = useState<number>(3600);
