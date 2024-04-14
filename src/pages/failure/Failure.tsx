@@ -1,18 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import "./success.css";
+import "./failure.css";
 import Button from '@mui/material/Button';
 
-const Success = () => {
+const Failure = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="success">
-      <h2 className="successTitle">Ответы отправлены</h2>
+    <div className="failure">
+      <h2 className="failureTitle">Время вышло</h2>
       <Button style={{minWidth: "135px"}} variant="contained" type="button"
-        onClick={()=> navigate('/')}>Обратно
+        onClick={()=> navigate('/')}>Начать заново
       </Button>
     </div>
   )
 }
 
-export default Success;
+export default Failure;

@@ -27,3 +27,7 @@ export type Props = {
   setAnswers: Dispatch<SetStateAction<Answer[]>>,
   setProgress: Dispatch<SetStateAction<number>>,
 }
+
+export type TimerProps = {
+  counter: number
+}

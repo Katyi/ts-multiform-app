@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./mainPage.css";
 import { Steps, useSteps } from "react-step-builder";
 import {formPages} from "../../data/db.json";
 import FormPage from "../../pages/formPage/FormPage";
@@ -7,6 +8,7 @@ import Button from '@mui/material/Button';
 import { Answer, PageAtr } from "../../types/types";
 import { Box } from "@mui/material";
 import LinearProgressWithLabel from "../../components/progressBar/ProgressBar";
+import Timer from "../../components/timer/Timer";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ function MainPage() {
   const [pages, setPages] = useState<PageAtr[]>(formPages);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [progress, setProgress] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(300);
   
   const handleClear = () => {
     localStorage.clear();
@@ -47,13 +50,24 @@ function MainPage() {
   },[pages])
 
   useEffect(() => {
-    setProgress(100/formPages.length)
+    setProgress(100/formPages.length);
   },[])
+
+  useEffect(() => {
+    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+    if (counter === 0) {
+      handleClear();
+      navigate('/failure');
+    }
+  }, [counter]);
 
   return (
     <div className="app">
-      <form onSubmit={handleSubmit} className="form">        
-        <h2>Тестирование</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="titleAndTimer">
+          <h2>Тестирование</h2>
+          <Timer counter={counter}/>
+        </div>
         <Box sx={{ width: '50%', marginBottom: '10px'}}><LinearProgressWithLabel value={progress} color="secondary" /></Box>
         <Steps>
           {pages.map(page => (

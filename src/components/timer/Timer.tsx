@@ -1,17 +1,13 @@
+import { TimerProps } from "../../types/types";
 import "./timer.css";
-import {ReactElement, useEffect, useState} from 'react';
+import {ReactElement} from 'react';
 
-const Timer = (): ReactElement => {
-  const [counter, setCounter] = useState<number>(300);
+const Timer = (props: TimerProps): ReactElement => {
+  const {counter} = props;
 
-  useEffect(() => {
-    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
-  }, [counter]);
-  
   return (
     <div className="timerWrapper">
-      {counter>0 ? <div className="timer">{"Осталось: "}{Math.floor((counter/60)%60)} {":"} {Math.floor((counter)%60)}</div>
-        : <div className="timeOver">Время вышло</div>}
+      <div className="timer">{"Осталось: "}{Math.floor((counter/60)%60)} {":"} {Math.floor((counter)%60)}</div>  
     </div>
   )
 }

@@ -1,4 +1,4 @@
-.success {
+.failure {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
 }
-.successTitle {
+.failureTitle {
   font-size: 20px; 
   height: 20px;
   margin-top: 10px;
   margin-bottom: 20px;
-  color: blue;
+  color: red;
 }
